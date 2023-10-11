@@ -1,5 +1,5 @@
-import etlap
-nyugta_meret = 24
+import etlap, math
+nyugta_meret = 36
 def szamolas(eloetel_ar, mennyiseg, desszert_ar, dmennyiseg):
     osszesen=(eloetel_ar* mennyiseg)+(desszert_ar*dmennyiseg)
     szervizdij=(osszesen*0.1)
@@ -18,19 +18,20 @@ def szamolas(eloetel_ar, mennyiseg, desszert_ar, dmennyiseg):
 
     etlap.jelsor("=", nyugta_meret)
 
-    etlap.szoveg_ar("Összesen", str(osszesen) + " Ft", nyugta_meret)
-    etlap.szoveg_ar("Szervízdíj", str(szervizdij) + " Ft", nyugta_meret)
+    etlap.szoveg_ar("Összese n", str(osszesen) + " Ft", nyugta_meret)
+    etlap.szoveg_ar("Szervízdíj", str(math.trunc(int(szervizdij))) + " Ft", nyugta_meret)
 
     etlap.jelsor("_", nyugta_meret)
 
     print("")
-    etlap.szoveg_ar("Fizetendő", str(fizetendo) + " Ft", nyugta_meret)
+    etlap.szoveg_ar("Fizetendő", str(math.trunc(int(fizetendo))) + " Ft", nyugta_meret)
 
     etlap.jelsor("_", nyugta_meret)
 
 
-def rendeles(halar,husar,fagyiar,browniear):
-    igennem: str = str(input("Szeretnél-e előételt?(I/N)"))
+def rendeles(halar,husar,fagyiar,browniear,nyugta_meret):
+    igennem: str = str(input("Szeretnél-e előételt?(I/N) "))
+    print("-" * nyugta_meret)
 
     mennyiseg=0
     dmennyiseg=0
@@ -39,45 +40,88 @@ def rendeles(halar,husar,fagyiar,browniear):
     eloetel_ar=0
 
     if igennem == "I":
-        mennyiseg: int = int(input("Hány előételt szeretnél?"))
-
+        print("Igent választottál")
+        print("-" * nyugta_meret)
+        mennyiseg: int = int(input("Hány előételt szeretnél? "))
+        print("-" * nyugta_meret)
+        
         print("Hal --- 1\nHús --- 2")
-        eloetel_fajta: int = int(input("Melyik előételt szeretné?"))
+        eloetel_fajta: int = int(input("Melyik előételt szeretnéd? "))
 
         if eloetel_fajta == 1:
             eloetel_ar = halar
-            print("Halat válaszott --",halar)
+            print("-" * nyugta_meret)
+            print(mennyiseg,"db Halat válaszott --",eloetel_ar* mennyiseg,"Ft")
+            print("-" * nyugta_meret)
         elif eloetel_fajta == 2:
             eloetel_ar = husar
+            print("-" * nyugta_meret)
+            print(mennyiseg,"db Húst válaszott --",eloetel_ar* mennyiseg,"Ft")
+            print("-" * nyugta_meret)
 
 
-        digennem: str = str(input("Szeretnél-e desszertet?(I/N)"))
+        digennem: str = str(input("Szeretnél-e desszertet?(I/N) "))
+        print("-" * nyugta_meret)
+
         if digennem == "I":
-            dmennyiseg: int = int(input("Hány desszertet szeretnél?"))
+            print("Igent választottál")
+            print("-" * nyugta_meret)
+            dmennyiseg: int = int(input("Hány desszertet szeretnél? "))
+            print("-" * nyugta_meret)
 
             print("Fagyi --- 1\nBrownie --- 2")
-            dfajta: int = int(input("Melyik desszertet szeretné?"))
+            dfajta: int = int(input("Melyik desszertet szeretnéd? "))
 
             if dfajta == 1:
                 desszert_ar = fagyiar
+                print("-" * nyugta_meret)
+                print(dmennyiseg,"db Fagyit válaszott --",desszert_ar*dmennyiseg,"Ft")
+                print("-" * nyugta_meret)
             elif dfajta == 2:
                 desszert_ar = browniear
+                print("-" * nyugta_meret)
+                print(dmennyiseg,"db Borwnie-t válaszott --",desszert_ar*dmennyiseg,"Ft")
+                print("-" * nyugta_meret)
 
         elif digennem == "N":
             print("Nem kértél desszertet")
+            print("-" * nyugta_meret)
         else:
             print("Rosszbbetűt adtál meg")
     elif igennem == "N":
-        digennem: str = str(input("Szeretnél-e desszertet?(I/N)"))
+        print("Nem kértél előételt")
+        print("-" * nyugta_meret)
+        digennem: str = str(input("Szeretnél-e desszertet?(I/N) "))
+        print("-" * nyugta_meret)
         if digennem == "I":
-            dmennyiseg: int = int(input("Hány desszertet szeretnél?"))
+            print("Igent választottál")
+            print("-" * nyugta_meret)
+            dmennyiseg: int = int(input("Hány desszertet szeretnél? "))
+            print("-" * nyugta_meret)
+
+            print("Fagyi --- 1\nBrownie --- 2")
+            dfajta: int = int(input("Melyik desszertet szeretnéd? "))
+
+            if dfajta == 1:
+                desszert_ar = fagyiar
+                print("-" * nyugta_meret)
+                print(dmennyiseg,"db Fagyit válaszott --",desszert_ar*dmennyiseg,"Ft")
+                print("-" * nyugta_meret)
+            elif dfajta == 2:
+                desszert_ar = browniear
+                print("-" * nyugta_meret)
+                print(dmennyiseg,"db Borwnie-t válaszott --",desszert_ar*dmennyiseg,"Ft")
+                print("-" * nyugta_meret)
         elif digennem == "N":
-            print("Nem kértél desszertet")
+            print("Nem kértél semmit")
+            print("-" * nyugta_meret)
         else:
             print("Rosszbbetűt adtál meg")
+                    
     else:
         print("Rossz betűt adtál meg")
 
+    input("Nyugta nyomtatáshoz üss egy entert!")
     szamolas(eloetel_ar, mennyiseg, desszert_ar, dmennyiseg)
 
 

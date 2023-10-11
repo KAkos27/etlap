@@ -1,5 +1,5 @@
 import etlap
-etlap_meret: int = 24
+etlap_meret: int = 36
 halar: int = 1590
 husar: int = 1660
 fagyiar: int = 1270
@@ -26,7 +26,7 @@ etlap.jelsor("=", etlap_meret)
 #RENDELÉS/SZÁMOLÁS
 
 import modulok
-modulok.rendeles(halar,husar,fagyiar,browniear)
+modulok.rendeles(halar,husar,fagyiar,browniear,etlap_meret)
 
 
 
