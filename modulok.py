@@ -1,33 +1,3 @@
-import etlap, math
-nyugta_meret = 36
-def szamolas(eloetel_ar, mennyiseg, desszert_ar, dmennyiseg):
-    osszesen=(eloetel_ar* mennyiseg)+(desszert_ar*dmennyiseg)
-    szervizdij=(osszesen*0.1)
-    fizetendo=(osszesen+szervizdij)
-
-    #NYUGTA
-    print("")
-    print("")
-    print("")
-    etlap.jelsor("*", nyugta_meret)
-    etlap.cimsor("*","NYUGTA","*", nyugta_meret)
-    etlap.jelsor("*", nyugta_meret)
-
-    etlap.szoveg_ar("Tétel1", str(eloetel_ar* mennyiseg) + " Ft", nyugta_meret)
-    etlap.szoveg_ar("Tétel2", str(desszert_ar*dmennyiseg) + " Ft", nyugta_meret)
-
-    etlap.jelsor("=", nyugta_meret)
-
-    etlap.szoveg_ar("Összesen", str(osszesen) + " Ft", nyugta_meret)
-    etlap.szoveg_ar("Szervízdíj", str(math.trunc(int(szervizdij))) + " Ft", nyugta_meret)
-
-    etlap.jelsor("_", nyugta_meret)
-
-    print("")
-    etlap.szoveg_ar("Fizetendő", str(math.trunc(int(fizetendo))) + " Ft", nyugta_meret)
-
-    etlap.jelsor("_", nyugta_meret)
-
 def kerdes(szoveg):
     valasz: str = str(input(szoveg))
     while not((valasz =="i") or (valasz =="I") or (valasz =="n") or (valasz =="N")):
@@ -35,29 +5,43 @@ def kerdes(szoveg):
         valasz: str = str(input(szoveg))
     return valasz
 
+def rendfelvetel(etel_lista,rendszoveg,):
+        rend_lista = []
+        print("Kérlek add meg a rendelni kívánt étel számát. Írj 0-át, ha már nem kérsz többet")
+        rendindex:int = int(input(rendszoveg))
+        while rendindex != 0:
+            rend_lista.append(etel_lista[rendindex-1])
+            rendindex:int = int(input(rendszoveg))
+        return rend_lista
 
 
 def rendeles(fo_lista,fo_ar_lista,koret_lista,koret_ar_lista,desz_lista,desz_ar_lista,etlap_meret):
-    mennyiseg=0
-    dmennyiseg=0
+    foetelszoveg:str="Szeretnél főételt?(I/N): "
+    foetelrendszoveg:str="Melyik főételt szeretnéd?: "
+    koretrendszoveg:str="Melyik köretet szeretnéd?: "
+    deszrendszoveg:str="Melyik desszertet szeretnéd?: "
+    desszertszoveg:str="Szeretnél desszertet?(I/N): "
 
-    eloetel_ar=0
-    desszert_ar=0
-
-    eloetelszoveg:str="Szeretnél előételt?(I/N)"
-    desszertszoveg:str="Szeretnél desszertet?(I/N)"
-
-    igennem:str=kerdes(eloetelszoveg)
+    igennem:str=kerdes(foetelszoveg)
     print("-" * etlap_meret)
 
-   
-
-    digennem: str =kerdes(desszertszoveg)
+    if igennem == "i" or igennem == "I":
+        frend_lista = rendfelvetel(fo_lista,foetelrendszoveg)
+        if len(frend_lista) > 0:
+            print("-" * etlap_meret)
+            krend_lista = rendfelvetel(koret_lista,koretrendszoveg)
+    
+    digennem:str=kerdes(desszertszoveg)
     print("-" * etlap_meret)
 
-        
+    if digennem == "i" or digennem == "I":
+        drend_lista=rendfelvetel(desz_lista,deszrendszoveg)
+    
+    print(frend_lista)
+    print(krend_lista)
+    print(drend_lista)
     input("Nyugta nyomtatáshoz üss egy entert!")
-    szamolas(eloetel_ar, mennyiseg, desszert_ar, dmennyiseg)
+    
 
 
 

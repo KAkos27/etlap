@@ -2,7 +2,7 @@ import etlap
 import modulok
 etlap_meret: int = 36
 
-fo_lista=["Rántott pisztráng","Rib-eyes Steak","Roston csirkemell","Grillezet tofu"]
+fo_lista=["Rántott pisztráng","Rib-eye Steak","Roston csirkemell","Grillezet tofu"]
 fo_ar_lista=[2390,2760,2290,2560]
 
 koret_lista=["Rízs","Krumplipüré","Steak burgonya"]
