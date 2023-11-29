@@ -1,32 +1,42 @@
 import etlap
+import modulok
 etlap_meret: int = 36
-halar: int = 1590
-husar: int = 1660
-fagyiar: int = 1270
-browniear: int = 1490
+
+fo_lista=["Rántott pisztráng","Rib-eyes Steak","Roston csirkemell","Grillezet tofu"]
+fo_ar_lista=[2390,2760,2290,2560]
+
+koret_lista=["Rízs","Krumplipüré","Steak burgonya"]
+koret_ar_lista=[400,470,510]
+
+desz_lista=["Tiramisu","Pisztácia kulfi","Brownie"]
+desz_ar_lista=[1790,1580,1990]
+
+def kiiras(lista,ar_lista):
+    for i in range(0,len(lista),1):
+        etlap.szoveg_ar(lista[i], str(ar_lista[i]) + " Ft", etlap_meret)
+
+def cimsor(cim):
+    etlap.jelsor("*", etlap_meret)
+    etlap.cimsor("*",cim,"*", etlap_meret)
+    etlap.jelsor("*", etlap_meret)
 
 #ETLAP
 
-etlap.jelsor("*", etlap_meret)
-etlap.cimsor("*","FŐÉTELEK","*", etlap_meret)
-etlap.jelsor("*", etlap_meret)
+cimsor("FŐÉTELEK")
 
-etlap.szoveg_ar("Hal", str(halar) + " Ft", etlap_meret)
-etlap.szoveg_ar("Hús", str(husar) + " Ft", etlap_meret)
+kiiras(fo_lista,fo_ar_lista)
 
-etlap.jelsor("*", etlap_meret)
-etlap.cimsor("*","DESSZERTEK","*", etlap_meret)
-etlap.jelsor("*", etlap_meret)
+cimsor("KÖRETEK")
 
-etlap.szoveg_ar("Fagyi", str(fagyiar) + " Ft", etlap_meret)
-etlap.szoveg_ar("Browniear", str(browniear) + " Ft", etlap_meret)
+kiiras(koret_lista,koret_ar_lista)
 
+cimsor("DESSZERTEK")
+
+kiiras(desz_lista,desz_ar_lista)
 etlap.jelsor("=", etlap_meret)
 
-#RENDELÉS/SZÁMOLÁS
 
-import modulok
-modulok.rendeles(halar,husar,fagyiar,browniear,etlap_meret)
+modulok.rendeles(fo_lista,fo_ar_lista,koret_lista,koret_ar_lista,desz_lista,desz_ar_lista,etlap_meret)
 
 
 
