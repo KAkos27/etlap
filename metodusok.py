@@ -10,6 +10,9 @@ def rendfelvetel(etel_lista,rendszoveg,):
         print("Kérlek add meg a rendelni kívánt étel számát. Írj 0-át, ha már nem kérsz többet")
         rendindex:int = int(input(rendszoveg))
         while rendindex != 0:
+            while rendindex > len(etel_lista) or rendindex < 0:
+                print("Hiba! Nincs ilyen étel az étlapon.")
+                rendindex:int = int(input(rendszoveg))
             rend_lista.append(etel_lista[rendindex-1])
             rendindex:int = int(input(rendszoveg))
         return rend_lista

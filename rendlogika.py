@@ -30,6 +30,10 @@ def rendeles(fo_lista,fo_ar_lista,koret_lista,koret_ar_lista,desz_lista,desz_ar_
 
             for i in range(0,len(frend_lista),1):
                 rendindex:int = int(input(koretrendszoveg))
+                while rendindex > len(koret_lista) or rendindex <= 0:
+                    print("Hiba! Nincs ilyen köret")
+                    rendindex:int = int(input(koretrendszoveg))
+
                 krend_lista.append(koret_lista[rendindex-1])
             etlap.jelsor("-",etlap_meret)
                 
