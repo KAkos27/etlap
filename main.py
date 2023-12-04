@@ -1,5 +1,5 @@
 import etlap
-import modulok
+import rendlogika
 etlap_meret: int = 36
 
 fo_lista=["Rántott pisztráng","Rib-eye Steak","Roston csirkemell","Grillezet tofu"]
@@ -20,7 +20,7 @@ def cimsor(cim):
     etlap.cimsor("*",cim,"*", etlap_meret)
     etlap.jelsor("*", etlap_meret)
 
-#ETLAP
+
 
 cimsor("FŐÉTELEK")
 
@@ -36,7 +36,7 @@ kiiras(desz_lista,desz_ar_lista)
 etlap.jelsor("=", etlap_meret)
 
 
-modulok.rendeles(fo_lista,fo_ar_lista,koret_lista,koret_ar_lista,desz_lista,desz_ar_lista,etlap_meret)
+rendlogika.rendeles(fo_lista,fo_ar_lista,koret_lista,koret_ar_lista,desz_lista,desz_ar_lista,etlap_meret)
 
 
 
