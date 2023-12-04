@@ -1,4 +1,5 @@
 import metodusok
+import etlap
 import math
 
 def rendeles(fo_lista,fo_ar_lista,koret_lista,koret_ar_lista,desz_lista,desz_ar_lista,etlap_meret):

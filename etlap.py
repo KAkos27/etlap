@@ -12,8 +12,8 @@ def kiiras(lista,ar_lista,hossz):
     for i in range(0,len(lista),1):
         szoveg_ar(lista[i], str(ar_lista[i]) + " Ft", hossz)
         
-def cimsorkiiras(cim,hossz):
-    jelsor("*", hossz)
-    cimsor("*",cim,"*", hossz)
-    jelsor("*", hossz)
+def cimsorkiiras(cim,hossz,jel):
+    jelsor(jel,hossz)
+    cimsor(jel,cim,jel,hossz)
+    jelsor(jel,hossz)
 
