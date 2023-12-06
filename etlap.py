@@ -10,7 +10,7 @@ def cimsor(jel, szoveg, jel2, etlap_meret):
 
 def kiiras(lista,ar_lista,hossz):
     for i in range(0,len(lista),1):
-        szoveg_ar(lista[i], str(ar_lista[i]) + " Ft", hossz)
+        szoveg_ar(f"{i+1}) {lista[i]}", str(ar_lista[i]) + " Ft", hossz)
         
 def cimsorkiiras(cim,hossz,jel):
     jelsor(jel,hossz)
