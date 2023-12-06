@@ -46,40 +46,36 @@ def rendeles(fo_lista,fo_ar_lista,koret_lista,koret_ar_lista,desz_lista,desz_ar_
     
     input("Nyugta nyomtatáshoz üss egy entert!")
 
-    if len(frend_lista) != 0 and len(drend_lista) != 0:
+    if len(frend_lista) == 0 and len(drend_lista) == 0:
+        etlap.cimsorkiiras("NYUGTA",etlap_meret,"=")
+        print("Nem rendeltél semmit")
+    elif len(frend_lista) != 0 and len(drend_lista) != 0:
         frend_ar_lista = metodusok.arkereses(frend_lista,fo_lista,fo_ar_lista)
         krend_ar_lista = metodusok.arkereses(krend_lista,koret_lista,koret_ar_lista)
         drend_ar_lista = metodusok.arkereses(drend_lista,desz_lista,desz_ar_lista)
         freszosszeg = metodusok.szamolas(frend_ar_lista)
         kreszosszeg = metodusok.szamolas(krend_ar_lista)
         dreszosszeg = metodusok.szamolas(drend_ar_lista)
+        etlap.cimsorkiiras("NYUGTA",etlap_meret,"=")
+        etlap.kiiras(frend_lista,frend_ar_lista,etlap_meret)
+        etlap.jelsor("-",etlap_meret)
+        etlap.kiiras(krend_lista,krend_ar_lista,etlap_meret)
+        etlap.jelsor("-",etlap_meret)
+        etlap.kiiras(drend_lista,drend_ar_lista,etlap_meret)
     elif len(frend_lista) != 0 and len(drend_lista) == 0:
         frend_ar_lista = metodusok.arkereses(frend_lista,fo_lista,fo_ar_lista)
         krend_ar_lista = metodusok.arkereses(krend_lista,koret_lista,koret_ar_lista)
         freszosszeg = metodusok.szamolas(frend_ar_lista)
         kreszosszeg = metodusok.szamolas(krend_ar_lista)
+        etlap.cimsorkiiras("NYUGTA",etlap_meret,"=")
+        etlap.kiiras(frend_lista,frend_ar_lista,etlap_meret)
+        etlap.jelsor("-",etlap_meret)
+        etlap.kiiras(krend_lista,krend_ar_lista,etlap_meret)
     elif len(frend_lista) == 0 and len(drend_lista) !=0:
         drend_ar_lista = metodusok.arkereses(drend_lista,desz_lista,desz_ar_lista)
-        dreszosszeg = metodusok.szamolas(drend_ar_lista)   
-
-    if len(frend_lista) == 0 and len(drend_lista) == 0:
+        dreszosszeg = metodusok.szamolas(drend_ar_lista)  
         etlap.cimsorkiiras("NYUGTA",etlap_meret,"=")
-        print("Nem rendeltél semmit")
-    elif len(frend_lista) != 0 and len(drend_lista) != 0:
-        etlap.cimsorkiiras("NYUGTA",etlap_meret,"=")
-        etlap.kiiras(frend_lista,frend_ar_lista,etlap_meret)
-        etlap.jelsor("-",etlap_meret)
-        etlap.kiiras(krend_lista,krend_ar_lista,etlap_meret)
-        etlap.jelsor("-",etlap_meret)
-        etlap.kiiras(drend_lista,drend_ar_lista,etlap_meret)
-    elif len(frend_lista) != 0 and len(drend_lista) == 0:
-        etlap.cimsorkiiras("NYUGTA",etlap_meret,"=")
-        etlap.kiiras(frend_lista,frend_ar_lista,etlap_meret)
-        etlap.jelsor("-",etlap_meret)
-        etlap.kiiras(krend_lista,krend_ar_lista,etlap_meret)
-    elif len(frend_lista) == 0 and len(drend_lista) !=0:
-        etlap.cimsorkiiras("NYUGTA",etlap_meret,"=")
-        etlap.kiiras(drend_lista,drend_ar_lista,etlap_meret)
+        etlap.kiiras(drend_lista,drend_ar_lista,etlap_meret) 
 
     etlap.jelsor("=",etlap_meret)
 
