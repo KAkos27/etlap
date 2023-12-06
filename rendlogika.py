@@ -16,16 +16,20 @@ def rendeles(fo_lista,fo_ar_lista,koret_lista,koret_ar_lista,desz_lista,desz_ar_
     dreszosszeg:int = 0
     reszosszeg:int = 0
     vegosszeg:float = 0
-
+    
     igennem:str=metodusok.kerdes(foetelszoveg)
-    etlap.jelsor("-",etlap_meret)
 
     if igennem == "i" or igennem == "I":
+        etlap.cimsorkiiras("FŐÉTELEK",etlap_meret,"*")
+        etlap.kiiras(fo_lista,fo_ar_lista,etlap_meret)
+        etlap.jelsor("=",etlap_meret)
         frend_lista = metodusok.rendfelvetel(fo_lista,foetelrendszoveg)
 
         if len(frend_lista) > 0:
-            etlap.jelsor("-",etlap_meret)
             krend_lista = []
+            etlap.cimsorkiiras("KÖRETEK",etlap_meret,"*")
+            etlap.kiiras(koret_lista,koret_ar_lista,etlap_meret)
+            etlap.jelsor("=",etlap_meret)
             print(f"Válassz {len(frend_lista)} köretet!")
 
             for i in range(0,len(frend_lista),1):
@@ -33,15 +37,14 @@ def rendeles(fo_lista,fo_ar_lista,koret_lista,koret_ar_lista,desz_lista,desz_ar_
                 while rendindex > len(koret_lista) or rendindex <= 0:
                     print("Hiba! Nincs ilyen köret")
                     rendindex:int = int(input(koretrendszoveg))
-
                 krend_lista.append(koret_lista[rendindex-1])
-            etlap.jelsor("-",etlap_meret)
                 
-    
     digennem:str=metodusok.kerdes(desszertszoveg)
-    etlap.jelsor("-",etlap_meret)
 
     if digennem == "i" or digennem == "I":
+        etlap.cimsorkiiras("DESSZERTEK",etlap_meret,"*")
+        etlap.kiiras(desz_lista,desz_ar_lista,etlap_meret)
+        etlap.jelsor("=",etlap_meret)
         drend_lista=metodusok.rendfelvetel(desz_lista,deszrendszoveg)
     
     input("Nyugta nyomtatáshoz üss egy entert!")
